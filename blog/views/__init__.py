@@ -12,6 +12,14 @@ from tag_views import (
     TagUpdateAPIView,
     TagDeleteAPIView
 )
+from post_views import (
+    PostListAPIView,
+    PostDetailsAPIView,
+    PostCreateAPIView,
+    PostUpdateAPIView,
+    PostDeleteAPIView,
+    FeaturedPostListAPIView,
+)
 
 __all__ = [
     "CategoryListAPIView",
@@ -25,4 +33,11 @@ __all__ = [
     "TagCreateAPIView",
     "TagUpdateAPIView",
     "TagDeleteAPIView",
+
+    "PostListAPIView",
+    "PostDetailsAPIView",
+    "PostCreateAPIView",
+    "PostUpdateAPIView",
+    "PostDeleteAPIView",
+    "FeaturedPostListAPIView",
 ]
