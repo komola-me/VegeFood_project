@@ -1,7 +1,7 @@
 from rest_framework.generics import CreateAPIView, ListAPIView, RetrieveAPIView, UpdateAPIView, DestroyAPIView
 
 from common.models import Sponsor
-from common.serializers.serializer import SponsorSerializer, SponsorListSerializer
+from common.serializers.sponsor_serializer import SponsorSerializer, SponsorListSerializer
 
 
 class SponsorCreateAPIView(CreateAPIView):
