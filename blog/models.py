@@ -18,7 +18,7 @@ class BlogPost(BaseModel):
     )
     is_featured = models.BooleanField(default=False)
     published_at = models.DateTimeField(blank=True, null=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="blog_posts")
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="blog_posts")
     category = models.ForeignKey(
         "blog.BlogCategory",
         on_delete=models.SET_NULL,
