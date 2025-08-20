@@ -23,9 +23,10 @@ from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, Spec
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include("common.urls")),
 
+    path('', include("common.urls")),
     path("users/", include("users.urls")),
+
 
     path('api-auth/', include('rest_framework.urls')),
 
