@@ -5,7 +5,13 @@ from blog.views import (
     CategoryDetailAPIView,
     CategoryCreateAPIView,
     CategoryUpdateAPIView,
-    CategoryDeleteAPIView
+    CategoryDeleteAPIView,
+
+    TagListAPIView,
+    TagDetailAPIView,
+    TagCreateAPIView,
+    TagUpdateAPIView,
+    TagDeleteAPIView,
 )
 
 urlpatterns = [
@@ -17,7 +23,11 @@ urlpatterns = [
     path("category/<int:id>/delete/", CategoryDeleteAPIView.as_view(),  name="category-delete"),
 
     ######## tag #############
-
+    path("tag/", TagListAPIView.as_view(), name="tag-list"),
+    path("tag/<int:id>/", TagDetailAPIView.as_view(), name="tag-detail"),
+    path("tag/create/", TagCreateAPIView.as_view(), name="tag-create"),
+    path("tag/<int:id>/update/", TagUpdateAPIView.as_view(), name="tag-update"),
+    path("tag/<int:id>/delete/", TagDeleteAPIView.as_view(), name="tag-delete"),
 
     ######## post ############
 ]

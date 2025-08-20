@@ -20,13 +20,12 @@ class CategoryCreateAPIView(generics.CreateAPIView):
     queryset = BlogCategory.objects.all()
     serializer_class = BlogCategoryCreateUpdateSerializer
     permission_classes = [IsAuthenticated]
-    lookup_field = "id"
 
 
 class CategoryUpdateAPIView(generics.UpdateAPIView):
     queryset = BlogCategory.objects.all()
     serializer_class = BlogCategoryCreateUpdateSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAdminUser]
     lookup_field = "id"
 
 

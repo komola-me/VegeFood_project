@@ -3,7 +3,14 @@ from category_views import (
     CategoryDetailAPIView,
     CategoryCreateAPIView,
     CategoryUpdateAPIView,
-    CategoryDeleteAPIView
+    CategoryDeleteAPIView,
+)
+from tag_views import (
+    TagListAPIView,
+    TagDetailAPIView,
+    TagCreateAPIView,
+    TagUpdateAPIView,
+    TagDeleteAPIView
 )
 
 __all__ = [
@@ -12,4 +19,10 @@ __all__ = [
     "CategoryCreateAPIView",
     "CategoryUpdateAPIView",
     "CategoryDeleteAPIView",
+
+    "TagListAPIView",
+    "TagDetailAPIView",
+    "TagCreateAPIView",
+    "TagUpdateAPIView",
+    "TagDeleteAPIView",
 ]
