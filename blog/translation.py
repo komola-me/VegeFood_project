@@ -10,7 +10,7 @@ class TagTranslationOptions(TranslationOptions):
 
 @translator.register(BlogCategory)
 class CategoryTranslationOptions(TranslationOptions):
-    fields = ('name', 'is_active', 'published_at', 'created_at',)
+    fields = ('name', 'is_active')
 
 
 @translator.register(BlogPost)

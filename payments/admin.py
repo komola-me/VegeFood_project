@@ -1,4 +1,5 @@
 from django.contrib import admin
+from modeltranslation.admin import TranslationAdmin
 
 from payments.models import (
     Discount,
@@ -13,7 +14,7 @@ from payments.models import (
 
 
 @admin.register(Order)
-class OrderAdmin(admin.ModelAdmin):
+class OrderAdmin(admin.ModelAdmin, TranslationAdmin):
     list_display = (
         "id",
         "user__email",
@@ -27,7 +28,7 @@ class OrderAdmin(admin.ModelAdmin):
 
 
 @admin.register(OrderItem)
-class OrderItemAdmin(admin.ModelAdmin):
+class OrderItemAdmin(admin.ModelAdmin, TranslationAdmin):
     list_display = ("id", "order", "product__name", "quantity", "price")
     list_display_links = ("id", "order", "product__name")
     search_fields = (
@@ -38,7 +39,7 @@ class OrderItemAdmin(admin.ModelAdmin):
 
 
 @admin.register(Transaction)
-class TransactionAdmin(admin.ModelAdmin):
+class TransactionAdmin(admin.ModelAdmin, TranslationAdmin):
     list_display = (
         "id",
         "order",
@@ -57,7 +58,7 @@ class TransactionAdmin(admin.ModelAdmin):
 
 
 @admin.register(Provider)
-class ProviderAdmin(admin.ModelAdmin):
+class ProviderAdmin(admin.ModelAdmin, TranslationAdmin):
     list_display = ("id", "name")
     search_fields = ("name",)
     list_display_links = ("id", "name")
@@ -66,7 +67,7 @@ class ProviderAdmin(admin.ModelAdmin):
 
 
 @admin.register(Promocode)
-class PromocodeAdmin(admin.ModelAdmin):
+class PromocodeAdmin(admin.ModelAdmin, TranslationAdmin):
     list_display = (
         "id",
         "code",
@@ -83,14 +84,14 @@ class PromocodeAdmin(admin.ModelAdmin):
 
 
 @admin.register(PromocodeUsage)
-class PromocodeUsageAdmin(admin.ModelAdmin):
+class PromocodeUsageAdmin(admin.ModelAdmin, TranslationAdmin):
     list_display = ("id", "promocode_id__code", "used_at")
     search_fields = ("promocode_id__code", "promocode__description")
     list_display_links = ("id", "promocode_id__code")
 
 
 @admin.register(Discount)
-class DiscountAdmin(admin.ModelAdmin):
+class DiscountAdmin(admin.ModelAdmin, TranslationAdmin):
     list_display = ("id", "name", "description", "discount_type", "value")
     search_fields = ("name", "description")
     list_display_links = ("id", "name")
@@ -99,7 +100,7 @@ class DiscountAdmin(admin.ModelAdmin):
 
 
 @admin.register(ProductDiscount)
-class ProductDiscountAdmin(admin.ModelAdmin):
+class ProductDiscountAdmin(admin.ModelAdmin, TranslationAdmin):
     list_display = ("id", "product", "discount", "valid_from", "valid_until")
     search_fields = ("product__name", "discount__name")
     list_display_links = ("id", "product", "discount")

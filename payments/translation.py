@@ -24,7 +24,7 @@ class TransactionTranslationOptions(translator.TranslationOptions):
 
 @translator.register(Discount)
 class DiscountTranslationOptions(translator.TranslationOptions):
-    fields = ('title', 'description', 'discount_type', 'value', 'is_active',)
+    fields = ('name', 'description', 'discount_type', 'value', 'is_active',)
 
 
 @translator.register(ProductDiscount)

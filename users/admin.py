@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth import get_user_model
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
+from modeltranslation.admin import TranslationAdmin
 
 from users.models import Profession
 
@@ -8,7 +9,7 @@ User = get_user_model()
 
 
 @admin.register(User)
-class UserAdmin(BaseUserAdmin):
+class UserAdmin(BaseUserAdmin, TranslationAdmin):
     list_display = [
         "id",
         "email",
@@ -73,7 +74,7 @@ class UserAdmin(BaseUserAdmin):
     )
 
 
-@admin.register(Profession)
+@admin.register(Profession, TranslationAdmin)
 class ProfessionAdmin(admin.ModelAdmin):
     list_display = ["id", "name"]
     list_display_links = ["id", "name"]
