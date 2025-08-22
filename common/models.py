@@ -3,16 +3,16 @@ from django.utils.translation import gettext_lazy as _
 
 
 class BaseModel(models.Model):
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Created At"))
+    updated_at = models.DateTimeField(auto_now=True, verbose_name=_("Updated At"))
 
     class Meta:
         abstract = True
 
 
 class Sponsor(BaseModel):
-    name = models.CharField(max_length=255)
-    logo = models.ImageField(upload_to="sponsors")
+    name = models.CharField(max_length=255, verbose_name=_("name"))
+    logo = models.ImageField(upload_to="sponsors", verbose_name=_("logo"))
 
     def __str__(self):
         return self.name

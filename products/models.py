@@ -13,8 +13,7 @@ class Product(BaseModel):
         "products.ProductCategory", on_delete=models.RESTRICT, related_name="products", verbose_name=_("category")
     )
     is_featured = models.BooleanField(default=False, verbose_name=_("Is Featured"))
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Created At"))
-    updated_at = models.DateTimeField(auto_now=True, verbose_name=_("Updated At"))
+
 
     def __str__(self):
         return self.name

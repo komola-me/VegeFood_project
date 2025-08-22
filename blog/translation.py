@@ -6,3 +6,13 @@ from blog.models import BlogCategory, BlogPost, Tag
 @translator.register(Tag)
 class TagTranslationOptions(TranslationOptions):
     fields = ("name",)
+
+
+@translator.register(BlogCategory)
+class CategoryTranslationOptions(TranslationOptions):
+    fields = ('name', 'is_active', 'published_at', 'created_at',)
+
+
+@translator.register(BlogPost)
+class BlogPostTranslationOptions(TranslationOptions):
+    fields = ('title', 'slug', 'content', 'image','status', 'is_featured', 'published_at', 'author', 'category', 'tags',)
