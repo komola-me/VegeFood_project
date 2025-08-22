@@ -1,0 +1,266 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-22 15:57+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: .\blog\choices.py:6
+msgid "Draft"
+msgstr ""
+
+#: .\blog\choices.py:7
+msgid "Published"
+msgstr ""
+
+#: .\blog\models.py:33
+msgid "Blog Post"
+msgstr ""
+
+#: .\blog\models.py:34
+msgid "Blog Posts"
+msgstr ""
+
+#: .\blog\models.py:45
+msgid "Blog Category"
+msgstr ""
+
+#: .\blog\models.py:46
+msgid "Blog Categories"
+msgstr ""
+
+#: .\blog\models.py:59
+msgid "Tag"
+msgstr ""
+
+#: .\blog\models.py:60
+msgid "Tags"
+msgstr ""
+
+#: .\blog\models.py:75
+msgid "Comment"
+msgstr ""
+
+#: .\blog\models.py:76
+msgid "Comments"
+msgstr ""
+
+#: .\common\models.py:21
+msgid "Sponsor"
+msgstr ""
+
+#: .\common\models.py:22
+msgid "Sponsors"
+msgstr ""
+
+#: .\core\settings.py:186
+msgid "English"
+msgstr ""
+
+#: .\core\settings.py:187
+msgid "Russian"
+msgstr ""
+
+#: .\core\settings.py:188
+msgid "Uzbek"
+msgstr ""
+
+#: .\payments\choices.py:6 .\payments\choices.py:13
+msgid "Pending"
+msgstr ""
+
+#: .\payments\choices.py:7 .\payments\choices.py:14
+msgid "Paid"
+msgstr ""
+
+#: .\payments\choices.py:8 .\payments\choices.py:15
+msgid "Cancelled"
+msgstr ""
+
+#: .\payments\choices.py:9 .\payments\choices.py:16
+msgid "Failed"
+msgstr ""
+
+#: .\payments\choices.py:20
+msgid "Percentage"
+msgstr ""
+
+#: .\payments\choices.py:21
+msgid "Fixed"
+msgstr ""
+
+#: .\payments\models.py:36
+msgid "Order"
+msgstr ""
+
+#: .\payments\models.py:37
+msgid "Orders"
+msgstr ""
+
+#: .\payments\models.py:62
+msgid "Order Item"
+msgstr ""
+
+#: .\payments\models.py:63
+msgid "Order Items"
+msgstr ""
+
+#: .\payments\models.py:68
+msgid "order"
+msgstr ""
+
+#: .\payments\models.py:73 .\payments\models.py:105
+msgid "Provider"
+msgstr ""
+
+#: .\payments\models.py:80
+msgid "Status"
+msgstr ""
+
+#: .\payments\models.py:82
+msgid "Paid at"
+msgstr ""
+
+#: .\payments\models.py:84
+msgid "Cancelled at"
+msgstr ""
+
+#: .\payments\models.py:87
+msgid "Amount"
+msgstr ""
+
+#: .\payments\models.py:94
+msgid "Transaction"
+msgstr ""
+
+#: .\payments\models.py:95
+msgid "Transactions"
+msgstr ""
+
+#: .\payments\models.py:106
+msgid "Providers"
+msgstr ""
+
+#: .\payments\models.py:120
+msgid "Discount"
+msgstr ""
+
+#: .\payments\models.py:121
+msgid "Discounts"
+msgstr ""
+
+#: .\payments\models.py:146
+msgid "Product Discount"
+msgstr ""
+
+#: .\payments\models.py:147
+msgid "Product Discounts"
+msgstr ""
+
+#: .\payments\models.py:167
+msgid "Promocode"
+msgstr ""
+
+#: .\payments\models.py:168
+msgid "Promocodes"
+msgstr ""
+
+#: .\payments\models.py:181
+msgid "Promocode Usage"
+msgstr ""
+
+#: .\payments\models.py:182
+msgid "Promocode Usages"
+msgstr ""
+
+#: .\products\models.py:23
+msgid "Product"
+msgstr ""
+
+#: .\products\models.py:24
+msgid "Products"
+msgstr ""
+
+#: .\products\models.py:40
+msgid "Product Variant"
+msgstr ""
+
+#: .\products\models.py:41
+msgid "Product Variants"
+msgstr ""
+
+#: .\products\models.py:52
+msgid "Category"
+msgstr ""
+
+#: .\products\models.py:53
+msgid "Categories"
+msgstr ""
+
+#: .\users\models.py:10
+msgid "Email"
+msgstr ""
+
+#: .\users\models.py:12
+msgid "Phone Number"
+msgstr ""
+
+#: .\users\models.py:40
+msgid "User"
+msgstr ""
+
+#: .\users\models.py:41
+msgid "Users"
+msgstr ""
+
+#: .\users\models.py:54
+msgid "Profession"
+msgstr ""
+
+#: .\users\models.py:55
+msgid "Professions"
+msgstr ""
+
+#: .\users\models.py:67
+msgid "Cart"
+msgstr ""
+
+#: .\users\models.py:68
+msgid "Carts"
+msgstr ""
+
+#: .\users\models.py:84
+msgid "Cart Item"
+msgstr ""
+
+#: .\users\models.py:85
+msgid "Cart Items"
+msgstr ""
+
+#: .\users\models.py:98
+msgid "User Favorite"
+msgstr ""
+
+#: .\users\models.py:99
+msgid "User Favorites"
+msgstr ""
+
+#: .\users\models.py:113
+msgid "User Feedback"
+msgstr ""
+
+#: .\users\models.py:114
+msgid "User Feedbacks"
+msgstr ""

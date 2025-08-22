@@ -96,7 +96,7 @@ class Transaction(BaseModel):
 
 
 class Provider(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, verbose_name=_("Provider Name"))
 
     def __str__(self):
         return self.name
@@ -107,11 +107,11 @@ class Provider(models.Model):
 
 
 class Discount(BaseModel):
-    name = models.CharField(max_length=255)
-    description = models.TextField()
-    discount_type = models.CharField(choices=DiscountTypeChoices.choices)
-    value = models.PositiveIntegerField()
-    is_active = models.BooleanField(default=True)
+    name = models.CharField(max_length=255, verbose_name=_("Discount Name"))
+    description = models.TextField(verbose_name=_("Description"))
+    discount_type = models.CharField(choices=DiscountTypeChoices.choices, verbose_name=_("Discount Type"))
+    value = models.PositiveIntegerField(verbose_name=_("Discount Value"))
+    is_active = models.BooleanField(default=True, verbose_name=_("Discount Is Active"))
 
     def __str__(self):
         return self.name
@@ -128,6 +128,7 @@ class ProductDiscount(BaseModel):
         null=True,
         blank=True,
         related_name="discounts",
+        verbose_name=_("Product")
     )
     discount = models.ForeignKey(
         "payments.Discount",
@@ -135,9 +136,10 @@ class ProductDiscount(BaseModel):
         null=True,
         blank=True,
         related_name="product_discounts",
+        verbose_name=_("Discount")
     )
-    valid_from = models.DateTimeField(null=True, blank=True)
-    valid_until = models.DateTimeField(null=True, blank=True)
+    valid_from = models.DateTimeField(null=True, blank=True, verbose_name=_("Valid From"))
+    valid_until = models.DateTimeField(null=True, blank=True, verbose_name=_("Valid Until"))
 
     def __str__(self):
         return f"ProductDiscount<product_id={self.product_id}, discount_id={self.discount_id}>"
@@ -148,17 +150,17 @@ class ProductDiscount(BaseModel):
 
 
 class Promocode(BaseModel):
-    code = models.CharField(max_length=10, unique=True)
-    description = models.TextField()
-    type = models.CharField(choices=DiscountTypeChoices.choices)
-    value = models.PositiveIntegerField()
+    code = models.CharField(max_length=10, unique=True, verbose_name=_("PromoCode"))
+    description = models.TextField(verbose_name=_("description"))
+    type = models.CharField(choices=DiscountTypeChoices.choices, verbose_name=_("Promocode Type"))
+    value = models.PositiveIntegerField(verbose_name=_("Promocode Value"))
     min_amount = models.DecimalField(
-        max_digits=12, decimal_places=2, null=True, blank=True
+        max_digits=12, decimal_places=2, null=True, blank=True, verbose_name=_("Min Amount")
     )
-    usage_limit = models.PositiveIntegerField(null=True, blank=True)
-    valid_from = models.DateTimeField(null=True, blank=True)
-    valid_until = models.DateTimeField(null=True, blank=True)
-    is_active = models.BooleanField(default=True)
+    usage_limit = models.PositiveIntegerField(null=True, blank=True, verbose_name=_("Usage Limit"))
+    valid_from = models.DateTimeField(null=True, blank=True, verbose_name=_("Valid From"))
+    valid_until = models.DateTimeField(null=True, blank=True, verbose_name=_("Valid Until"))
+    is_active = models.BooleanField(default=True, verbose_name=_("Is Active"))
 
     def __str__(self):
         return self.code
@@ -170,9 +172,9 @@ class Promocode(BaseModel):
 
 class PromocodeUsage(models.Model):
     promocode_id = models.ForeignKey(
-        "payments.Promocode", on_delete=models.RESTRICT, related_name="usages"
+        "payments.Promocode", on_delete=models.RESTRICT, related_name="usages", verbose_name=_("PromoCode")
     )
-    used_at = models.DateTimeField(auto_now_add=True)
+    used_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Used At"))
 
     def __str__(self):
         return f"PromocodeUsage<promocode_id={self.promocode_id}>"

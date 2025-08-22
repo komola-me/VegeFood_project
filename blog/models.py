@@ -9,24 +9,25 @@ User = get_user_model()
 
 
 class BlogPost(BaseModel):
-    title = models.CharField(max_length=255)
-    slug = models.SlugField(unique_for_date="published_at")
-    content = models.TextField()
-    image = models.ImageField(upload_to="blog/", blank=True, null=True)
+    title = models.CharField(max_length=255, verbose_name=_("Post Title"))
+    slug = models.SlugField(unique_for_date="published_at", verbose_name=_("slug"))
+    content = models.TextField(verbose_name=_("content"))
+    image = models.ImageField(upload_to="blog/", blank=True, null=True, verbose_name=_("image"))
     status = models.CharField(
-        max_length=10, choices=BlogPostStatus.choices, default=BlogPostStatus.DRAFT
+        max_length=10, choices=BlogPostStatus.choices, default=BlogPostStatus.DRAFT, verbose_name=_("status")
     )
-    is_featured = models.BooleanField(default=False)
-    published_at = models.DateTimeField(blank=True, null=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="blog_posts")
+    is_featured = models.BooleanField(default=False, verbose_name=_("is_featured"))
+    published_at = models.DateTimeField(blank=True, null=True, verbose_name=_("Published at"))
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="blog_posts", verbose_name=_("Author"))
     category = models.ForeignKey(
         "blog.BlogCategory",
         on_delete=models.SET_NULL,
         null=True,
         blank=True,
         related_name="posts",
+        verbose_name=_("Post Category")
     )
-    tags = models.ManyToManyField("blog.Tag", blank=True, related_name="posts")
+    tags = models.ManyToManyField("blog.Tag", blank=True, related_name="posts", verbose_name=_("Post Tags"))
 
     class Meta:
         ordering = ["-published_at"]
@@ -38,8 +39,8 @@ class BlogPost(BaseModel):
 
 
 class BlogCategory(BaseModel):
-    name = models.CharField(max_length=100, unique=True)
-    is_active = models.BooleanField(default=True)
+    name = models.CharField(max_length=100, unique=True, verbose_name=_("Blog Category"))
+    is_active = models.BooleanField(default=True, verbose_name=_("Is Active"))
 
     class Meta:
         verbose_name = _("Blog Category")
@@ -50,7 +51,7 @@ class BlogCategory(BaseModel):
 
 
 class Tag(models.Model):
-    name = models.CharField(max_length=50, unique=True)
+    name = models.CharField(max_length=50, unique=True, verbose_name=_("Tag Name"))
 
     def __str__(self):
         return self.name
@@ -62,11 +63,11 @@ class Tag(models.Model):
 
 class Comment(BaseModel):
     post = models.ForeignKey(
-        BlogPost, on_delete=models.CASCADE, related_name="comments"
+        BlogPost, on_delete=models.CASCADE, related_name="comments", verbose_name=_("post")
     )
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="comments")
-    text = models.TextField()
-    is_active = models.BooleanField(default=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="comments", verbose_name=_("Comment Author"))
+    text = models.TextField(verbose_name=_("Comment text"))
+    is_active = models.BooleanField(default=True, verbose_name=_("Comment Is Active"))
 
     def __str__(self):
         return f"Comment by {self.user} on {self.post}"

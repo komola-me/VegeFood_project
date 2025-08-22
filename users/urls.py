@@ -19,5 +19,5 @@ urlpatterns = [
     path("profession/<int:id>/", ProfessionDetailAPIView.as_view(), name="profession-detail"),
     path("profession/create/", ProfessionCreateAPIView.as_view(), name="profession-create"),
     path("profession/<int:id>/update/", ProfessionUpdateAPIView.as_view(), name="profession-update"),
-    path("profession/<int:id/delete/", ProfessionDeleteAPIView.as_view(), name="profession-delete"),
+    path("profession/<int:id>/delete/", ProfessionDeleteAPIView.as_view(), name="profession-delete"),
 ]
