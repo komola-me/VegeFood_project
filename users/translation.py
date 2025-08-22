@@ -9,12 +9,12 @@ class UserTranslationOptions(translator.TranslationOptions):
 
 @translator.register(UserFavorites)
 class UserFavoritesTranslationOptions(translator.TranslationOptions):
-    fields = ()
+    fields = ('user', 'product_variant')
 
 
 @translator.register(UserFeedback)
 class UserFeedbackTranslationOptions(translator.TranslationOptions):
-    fields = ()
+    fields = ('user', 'message')
 
 
 @translator.register(Profession)

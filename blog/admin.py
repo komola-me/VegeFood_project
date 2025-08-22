@@ -5,7 +5,7 @@ from blog.models import BlogCategory, BlogPost, Comment, Tag
 
 
 @admin.register(BlogPost)
-class BlogPostAdmin(admin.ModelAdmin, TranslationAdmin):
+class BlogPostAdmin(TranslationAdmin, admin.ModelAdmin):
     list_display = ("id", "title", "status", "published_at")
     list_display_links = ("id", "title")
     list_filter = ("status", "published_at")
@@ -15,7 +15,7 @@ class BlogPostAdmin(admin.ModelAdmin, TranslationAdmin):
 
 
 @admin.register(BlogCategory)
-class BlogCategoryAdmin(admin.ModelAdmin, TranslationAdmin):
+class BlogCategoryAdmin(TranslationAdmin, admin.ModelAdmin):
     list_display = ("id", "name", "is_active")
     list_display_links = ("id", "name")
     list_filter = ("is_active",)
@@ -23,7 +23,7 @@ class BlogCategoryAdmin(admin.ModelAdmin, TranslationAdmin):
 
 
 @admin.register(Tag)
-class TagAdmin(admin.ModelAdmin, TranslationAdmin):
+class TagAdmin(TranslationAdmin, admin.ModelAdmin):
     list_display = (
         "id",
         "name",
@@ -33,7 +33,7 @@ class TagAdmin(admin.ModelAdmin, TranslationAdmin):
 
 
 @admin.register(Comment)
-class CommentAdmin(admin.ModelAdmin, TranslationAdmin):
+class CommentAdmin(TranslationAdmin, admin.ModelAdmin):
     list_display = ("id", "user", "post", "is_active")
     list_display_links = ("id", "user", "post")
     list_filter = ("is_active",)

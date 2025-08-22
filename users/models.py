@@ -25,6 +25,7 @@ class User(AbstractBaseUser, PermissionsMixin, BaseModel):
     favourites = models.ManyToManyField(
         "products.ProductVariant",
         through="UserFavorites",
+        through_fields=("user", "product_variant"),
         related_name="favourite_users",
         verbose_name=_("favourites")
     )

@@ -3,13 +3,13 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from modeltranslation.admin import TranslationAdmin
 
-from users.models import Profession
+from users.models import Profession, UserFeedback, UserFavorites
 
 User = get_user_model()
 
 
 @admin.register(User)
-class UserAdmin(BaseUserAdmin, TranslationAdmin):
+class UserAdmin(TranslationAdmin, BaseUserAdmin):
     list_display = [
         "id",
         "email",
@@ -74,8 +74,22 @@ class UserAdmin(BaseUserAdmin, TranslationAdmin):
     )
 
 
-@admin.register(Profession, TranslationAdmin)
-class ProfessionAdmin(admin.ModelAdmin):
+@admin.register(Profession)
+class ProfessionAdmin(TranslationAdmin, admin.ModelAdmin):
     list_display = ["id", "name"]
     list_display_links = ["id", "name"]
     search_fields = ["name"]
+
+
+@admin.register(UserFeedback)
+class UserFeedbackAdmin(TranslationAdmin, admin.ModelAdmin):
+    list_display = ["id", "user", "message"]
+    list_display_links = ["id", "user"]
+    search_fields = ["user"]
+
+
+@admin.register(UserFavorites)
+class UserFavoritesAdmin(TranslationAdmin, admin.ModelAdmin):
+    list_display = ['id', 'user', 'product_variant']
+    list_display_links = ['id', 'user', 'product_variant']
+    search_fields = ['user']

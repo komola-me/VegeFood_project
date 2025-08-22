@@ -1,7 +1,7 @@
 from modeltranslation.translator import TranslationOptions
 from modeltranslation import translator
 
-from blog.models import BlogCategory, BlogPost, Tag
+from blog.models import BlogCategory, BlogPost, Tag, Comment
 
 @translator.register(Tag)
 class TagTranslationOptions(TranslationOptions):
@@ -16,3 +16,8 @@ class CategoryTranslationOptions(TranslationOptions):
 @translator.register(BlogPost)
 class BlogPostTranslationOptions(TranslationOptions):
     fields = ('title', 'slug', 'content', 'image','status', 'is_featured', 'published_at', 'author', 'category', 'tags',)
+
+
+@translator.register(Comment)
+class CommentTranslationOptions(TranslationOptions):
+    fields = ('post', 'user', 'text', 'is_active')

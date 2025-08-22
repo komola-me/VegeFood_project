@@ -5,7 +5,7 @@ from common.models import Sponsor
 
 
 @admin.register(Sponsor)
-class SponsorAdmin(admin.ModelAdmin, TranslationAdmin):
+class SponsorAdmin(TranslationAdmin, admin.ModelAdmin):
     list_display = (
         "id",
         "name",
