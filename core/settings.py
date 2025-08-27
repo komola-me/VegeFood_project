@@ -55,11 +55,14 @@ EXTERNAL_APPS = [
     "daphne",
     "jazzmin",
     "rest_framework",
+    "rest_framework_simplejwt",
     "drf_spectacular",
     "drf_spectacular_sidecar",
-
     "rosetta",
     "modeltranslation",
+    'django_filters',
+    'celery',
+    'jwt',
 ]
 
 INSTALLED_APPS = EXTERNAL_APPS + LOCAL_APPS + DJANGO_APPS
@@ -71,6 +74,9 @@ REST_FRAMEWORK = {
     ],
     # YOUR SETTINGS
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
 }
 
 SPECTACULAR_SETTINGS = {
@@ -187,3 +193,26 @@ LANGUAGES = [
     ("ru", _("Russian")),
     ("uz", _("Uzbek")),
 ]
+
+CELERY_BROKER_URL=config('CELERY_BROKER_URL')
+CELERY_RESULT_BACKEND=config('CELERY_RESULT_BACKEND')
+REDIS_HOST = 'localhost'
+REDIS_PORT = 6379
+
+EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_PORT=587
+# EMAIL_FROM=config('EMAIL_FROM')
+EMAIL_HOST_USER=config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD=config('EMAIL_HOST_PASSWORD')
+EMAIL_USE_TLS=True
+
+from datetime import timedelta
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(days=1),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
+    "ROTATE_REFRESH_TOKENS": False,
+    "BLACKLIST_AFTER_ROTATION": False,
+    "UPDATE_LAST_LOGIN": False,
+}

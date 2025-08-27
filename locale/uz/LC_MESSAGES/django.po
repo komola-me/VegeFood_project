@@ -9,81 +9,83 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-22 15:57+0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2025-08-22 19:25+0000\n"
+"Last-Translator: None None <test@test.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Translated-Using: django-rosetta 0.10.2\n"
+
 #: .\blog\choices.py:6
 msgid "Draft"
-msgstr ""
+msgstr "Qoralama"
 
 #: .\blog\choices.py:7
 msgid "Published"
-msgstr ""
+msgstr "Chop Etilgan"
 
 #: .\blog\models.py:33
 msgid "Blog Post"
-msgstr ""
+msgstr "Post"
 
 #: .\blog\models.py:34
 msgid "Blog Posts"
-msgstr ""
+msgstr "Postlar"
 
 #: .\blog\models.py:45
 msgid "Blog Category"
-msgstr ""
+msgstr "Kategoriya"
 
 #: .\blog\models.py:46
 msgid "Blog Categories"
-msgstr ""
+msgstr "Kategoriyalar"
 
 #: .\blog\models.py:59
 msgid "Tag"
-msgstr ""
+msgstr "Teg"
 
 #: .\blog\models.py:60
 msgid "Tags"
-msgstr ""
+msgstr "Teglar"
 
 #: .\blog\models.py:75
 msgid "Comment"
-msgstr ""
+msgstr "Sharh"
 
 #: .\blog\models.py:76
 msgid "Comments"
-msgstr ""
+msgstr "Sharhlar"
 
 #: .\common\models.py:21
 msgid "Sponsor"
-msgstr ""
+msgstr "Sponsor"
 
 #: .\common\models.py:22
 msgid "Sponsors"
-msgstr ""
+msgstr "Sponsorlar"
 
 #: .\core\settings.py:186
 msgid "English"
-msgstr ""
+msgstr "Ingliz Tili"
 
 #: .\core\settings.py:187
 msgid "Russian"
-msgstr ""
+msgstr "Rus Tili"
 
 #: .\core\settings.py:188
 msgid "Uzbek"
-msgstr ""
+msgstr "O'zbek Tili"
 
 #: .\payments\choices.py:6 .\payments\choices.py:13
 msgid "Pending"
-msgstr ""
+msgstr "Kutmoqda"
 
 #: .\payments\choices.py:7 .\payments\choices.py:14
 msgid "Paid"
-msgstr ""
+msgstr "To'langan"
 
 #: .\payments\choices.py:8 .\payments\choices.py:15
 msgid "Cancelled"
@@ -95,7 +97,7 @@ msgstr ""
 
 #: .\payments\choices.py:20
 msgid "Percentage"
-msgstr ""
+msgstr "Foiz"
 
 #: .\payments\choices.py:21
 msgid "Fixed"

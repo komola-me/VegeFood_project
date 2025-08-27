@@ -9,4 +9,4 @@ from .models import BaseModel, Sponsor
 
 @translator.register(Sponsor)
 class SponsorTranslationOptions(translator.TranslationOptions):
-    fields = ('name', 'logo')
+    fields = ('name', 'logo',)

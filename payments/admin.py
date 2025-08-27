@@ -28,7 +28,7 @@ class OrderAdmin(TranslationAdmin, admin.ModelAdmin):
 
 
 @admin.register(OrderItem)
-class OrderItemAdmin(TranslationAdmin, admin.ModelAdmin):
+class OrderItemAdmin(admin.ModelAdmin):
     list_display = ("id", "order", "product__name", "quantity", "price")
     list_display_links = ("id", "order", "product__name")
     search_fields = (
@@ -84,7 +84,7 @@ class PromocodeAdmin(TranslationAdmin, admin.ModelAdmin):
 
 
 @admin.register(PromocodeUsage)
-class PromocodeUsageAdmin(TranslationAdmin, admin.ModelAdmin):
+class PromocodeUsageAdmin(admin.ModelAdmin):
     list_display = ("id", "promocode_id__code", "used_at")
     search_fields = ("promocode_id__code", "promocode__description")
     list_display_links = ("id", "promocode_id__code")
@@ -100,7 +100,7 @@ class DiscountAdmin(TranslationAdmin, admin.ModelAdmin):
 
 
 @admin.register(ProductDiscount)
-class ProductDiscountAdmin(TranslationAdmin, admin.ModelAdmin):
+class ProductDiscountAdmin(admin.ModelAdmin):
     list_display = ("id", "product", "discount", "valid_from", "valid_until")
     search_fields = ("product__name", "discount__name")
     list_display_links = ("id", "product", "discount")

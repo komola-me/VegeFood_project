@@ -8,7 +8,9 @@ from users.views import (
     ProfessionDetailAPIView,
     ProfessionCreateAPIView,
     ProfessionUpdateAPIView,
-    ProfessionDeleteAPIView)
+    ProfessionDeleteAPIView,
+    UserRegisterAPIView,
+    EmailConfirmAPIView,)
 
 urlpatterns = [
     path("", UserListAPIView.as_view(), name="user-list"),
@@ -20,4 +22,7 @@ urlpatterns = [
     path("profession/create/", ProfessionCreateAPIView.as_view(), name="profession-create"),
     path("profession/<int:id>/update/", ProfessionUpdateAPIView.as_view(), name="profession-update"),
     path("profession/<int:id>/delete/", ProfessionDeleteAPIView.as_view(), name="profession-delete"),
+
+    path("register/", UserRegisterAPIView.as_view(), name="register"),
+    path("register/confirm/<str:token>/", EmailConfirmAPIView.as_view(), name="register-confirm"),
 ]

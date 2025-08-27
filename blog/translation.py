@@ -10,14 +10,14 @@ class TagTranslationOptions(TranslationOptions):
 
 @translator.register(BlogCategory)
 class CategoryTranslationOptions(TranslationOptions):
-    fields = ('name', 'is_active')
+    fields = ('name',)
 
 
 @translator.register(BlogPost)
 class BlogPostTranslationOptions(TranslationOptions):
-    fields = ('title', 'slug', 'content', 'image','status', 'is_featured', 'published_at', 'author', 'category', 'tags',)
+    fields = ('title', 'slug', 'content', )
 
 
 @translator.register(Comment)
 class CommentTranslationOptions(TranslationOptions):
-    fields = ('post', 'user', 'text', 'is_active')
+    fields = ('text',)

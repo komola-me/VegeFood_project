@@ -1,11 +1,8 @@
 from django.contrib import admin
-from django.contrib.auth import get_user_model
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
-from modeltranslation.admin import TranslationAdmin
+from modeltranslation.admin import TranslationAdmin, TabbedTranslationAdmin
 
-from users.models import Profession, UserFeedback, UserFavorites
-
-User = get_user_model()
+from users.models import Profession, UserFeedback, UserFavorites, User
 
 
 @admin.register(User)
@@ -89,7 +86,7 @@ class UserFeedbackAdmin(TranslationAdmin, admin.ModelAdmin):
 
 
 @admin.register(UserFavorites)
-class UserFavoritesAdmin(TranslationAdmin, admin.ModelAdmin):
+class UserFavoritesAdmin(admin.ModelAdmin):
     list_display = ['id', 'user', 'product_variant']
     list_display_links = ['id', 'user', 'product_variant']
     search_fields = ['user']

@@ -1,6 +1,7 @@
 from .user_list import UserListAPIView
 from .user_detail import UserDetailAPIView, UserProfileAPIView
 from .user_profession import ProfessionListAPIView, ProfessionDetailAPIView, ProfessionUpdateAPIView, ProfessionCreateAPIView, ProfessionDeleteAPIView
+from .register import UserRegisterAPIView, EmailConfirmAPIView
 
 __all__ = [
     "UserListAPIView",
@@ -11,4 +12,6 @@ __all__ = [
     "ProfessionCreateAPIView",
     "ProfessionUpdateAPIView",
     "ProfessionDeleteAPIView",
+    "UserRegisterAPIView",
+    "EmailConfirmAPIView",
 ]
