@@ -10,7 +10,10 @@ from users.views import (
     ProfessionUpdateAPIView,
     ProfessionDeleteAPIView,
     UserRegisterAPIView,
-    EmailConfirmAPIView,)
+    EmailConfirmAPIView,
+    CartDetailView,
+    CartItemAddView,
+    CartItemUpdateDeleteView)
 
 urlpatterns = [
     path("", UserListAPIView.as_view(), name="user-list"),
@@ -25,4 +28,8 @@ urlpatterns = [
 
     path("register/", UserRegisterAPIView.as_view(), name="register"),
     path("register/confirm/<str:token>/", EmailConfirmAPIView.as_view(), name="register-confirm"),
+
+    path('cart/', CartDetailView.as_view(), name="cart"),
+    path("cart/add/", CartItemAddView.as_view(), name="cart-add"),
+    path("cart/remove/", CartItemUpdateDeleteView.as_view(), name="cart-remove"),
 ]

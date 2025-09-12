@@ -12,12 +12,14 @@ class BlogPost(BaseModel):
     title = models.CharField(max_length=255, verbose_name=_("Post Title"))
     slug = models.SlugField(unique_for_date="published_at", verbose_name=_("slug"))
     content = models.TextField(verbose_name=_("content"))
+
     image = models.ImageField(upload_to="blog/", blank=True, null=True, verbose_name=_("image"))
     status = models.CharField(
         max_length=10, choices=BlogPostStatus.choices, default=BlogPostStatus.DRAFT, verbose_name=_("status")
     )
     is_featured = models.BooleanField(default=False, verbose_name=_("is_featured"))
     published_at = models.DateTimeField(blank=True, null=True, verbose_name=_("Published at"))
+
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="blog_posts", verbose_name=_("Author"))
     category = models.ForeignKey(
         "blog.BlogCategory",

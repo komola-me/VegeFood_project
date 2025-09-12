@@ -67,6 +67,18 @@ class Cart(BaseModel):
     def __str__(self):
         return f"{self.user}"
 
+    def get_subtotal(self):
+        return sum(item.get_unit_price() * item.quantity for item in self.items.all())
+
+    def get_discount_total(self):
+        return self.get_subtotal() - sum(item.get_total_price() for item in self.items.all())
+
+    def get_total_price(self):
+        total = sum(item.get_total_price() for item in self.items.all())
+        if self.applied_promo:
+            total = self.applied_promo.apply_discount(total)
+        return total
+
     class Meta:
         verbose_name = _("Cart")
         verbose_name_plural = _("Carts")
@@ -78,13 +90,30 @@ class CartItem(BaseModel):
         verbose_name=_("cart")
     )
     product = models.ForeignKey(
-        "products.Product", on_delete=models.CASCADE, related_name="cart_items",
+        "products.ProductVariant", on_delete=models.CASCADE, related_name="cart_items",
         verbose_name=_("product")
     )
     quantity = models.PositiveIntegerField(default=1, verbose_name=_("quantity"))
 
     def __str__(self):
         return f"{self.product} - {self.quantity}"
+
+    def get_unit_price(self):
+        return self.product.price
+
+    def get_discounted_price(self):
+        discount = self.product.get_active_discount()
+        if not discount:
+            return self.get_unit_price()
+
+        if discount.discount_type == "PERCENT":
+            return self.get_unit_price() * (100 - discount.value) / 100
+        elif discount.discount_type == "FIXED":
+            return max(0, self.get_unit_price() - discount.value)
+        return self.get_unit_price()
+
+    def get_total_price(self):
+        return self.get_discounted_price() * self.quantity
 
     class Meta:
         verbose_name = _("Cart Item")
